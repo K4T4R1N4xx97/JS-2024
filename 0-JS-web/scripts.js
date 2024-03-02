@@ -1,2 +1,2 @@
 console.log("Opet Algebra");
-alert("try-try-try");
+alert("JS is a cool language");
