@@ -1,71 +1,69 @@
-const godina = 18;
+// primjer1
 
-/*Ovo ce se ispisati jer stroga (strict) provjera ce provjeriti vrijednost podataka i tipove podataka, i ako se oboje slaze, onda ce to biti true*/
-if(godina === 18){
-    console.log("Punoljetni ste.")
+/* const dan = prompt("Koji je danas dan?");
+console.log(dan);
+
+switch(dan){
+    case "ponedjeljak": //ovaj case radi provjeru kao da sam upisao dan === ponedjeljak
+        console.log("Danas je prvi dan tjedna.");
+        console.log("Danas smo 4 dana udaljeni od vikenda.");
+        break; // kada ovdje ne bi bilo breaka, kod ce ispisati i iduci dan, u biti sve dok ne naleti na prvi break
+        case "utorak":
+            console.log("Danas je drugi dan u tjednu.");
+            break;
+        
+        case "srijeda":
+            console.log("Sredina tjedna.");
+            break;  
+
+        case "cetvrtak":
+            console.log("mali petak.");
+            break;
+
+        case "petak":
+            console.log("Konacno je petak!");
+            break;
+
+        case "subota":
+        case "nedjelja":
+            console.log("Dobro dosli u vikend!");
+            break;
+
+        default:
+            console.log("niste unijeli dan u tjednu.");
+        }
+       */
+/*----------------------------------------------------------*/
+//primjer do-while, while-do
+
+let count = 0;
+while ( count < 10){
+    count++;
+    console.log(count);
+    }
+
+
+let brojac = 0;
+do {
+    brojac++;
+    console.log(brojac);
+    } while ( brojac < 10);
+
+// napisite while petlju koja ce ispisivati sve brojeve od 3 do 20
+
+let primjer1 = 2;
+while ( primjer1 < 20){
+      primjer1++;
+     console.log(primjer1);
 }
 
-// ovo se nece ispisati, vrijednost je jednaka, ali tipovi nisu string nije jednak broju.
-if("18" === 18){
-    console.log("Ovo se nece ispisati");
-}
-
-// ovo ce se ispisati jer nije stroga provjera, provjerava samo vrijednost, a tipove vrijednosti ne provjerava
-if("18" == 18){
-    console.log("Ovoce se ispisati.")
-}
-
-// Prakticni primjer
-/*
- const broj = Number(prompt("Koji ti je najdrazi broj?"));
- console.log(broj, typeof broj);
-
- if(broj === 1){
-    console.log("Broj 1 je top.")
- } else {
-    console.log("1 je zakon broj zasto ga niste upisali")
- }
-*/
- 
-// i / ili operateri
+// ispisite sve brojeve osim one koji sudjeljivi s 9
 
 
-const istina = true;
-const laz = false;
+/*let brojka = 3;
 
-// svi moraju biti true, da bi na kraju bio rezultat TRUE, ako je samo jedan FALSE, svi ce biti
-console.log(istina && laz && true);
-
-// dovoljno je da je samo jedan true i svi ce biti TRUE
-console.log(istina || laz || false);
-
-
-
-// not operator
-const punoljetan = true;
-// usklicnik na pocetku odredene varijable pretvara tu istu u suprotnu vrijednost true - false 
-if (istina && !punoljetan){
-    console.log("ovo je istinita tvrdnja i ispisati ce se.")
-}
-
-/* Nullish coalescing operator (nulti operator spajanja) - logicki operator koji ce vratiti operand sa desne strane ako je sa lijeve strane vrijednost operanda null ili undefined, inace ce vratiti lijevog operanda (za razliku od truthy i falsy koji ce vratiti i 0 i prazan string)*/
-
-let nullish;
-
-nullish = 10 ?? 20;
-nullish = "lijeva" ?? "desna";
-nullish = "" ?? "desna";
-nullish = 0 ?? "desna";
-nullish = null ?? "desna";
-
-console.log(nullish);
-
-
-
-
-
-
-
-
-
-
+while(brojka <= 20){
+    if (brojka % 9 === 0);{
+        console.log(brojka);
+    }
+}*/
