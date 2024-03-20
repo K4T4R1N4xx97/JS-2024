@@ -1,4 +1,4 @@
-console.log("gol 1");
+/*console.log("gol 1");
 console.log("gol 2");
 console.log("gol 3");
 console.log("gol 4");
@@ -8,6 +8,8 @@ console.log("gol 7");
 console.log("gol 8");
 console.log("gol 9");
 console.log("gol 10");
+UMJESTO OVOGA KORISTITI "FOR"
+*/
 
 for (let ponavljanje = 1; ponavljanje <= 10; ponavljanje++){
     console.log(`gol ${ponavljanje}`);
@@ -33,7 +35,7 @@ console.log(prijatelji[0]);
 //za provjeriti koliko je stavki u listi
 console.log(prijatelji.length);
 
-//kako ispisati zadnju stavku unutar liste
+//kako ispisati zadnju stavku unutar liste ako nisi siguran koliko stvki ima u listi
 console.log( prijatelji[prijatelji.length - 1]);
 
 prijatelji[2] = "Stjepan";
