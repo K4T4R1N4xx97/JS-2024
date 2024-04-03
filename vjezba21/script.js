@@ -13,4 +13,6 @@ console.log(document.body.innerHTML);
 console.log(document.body.innerText);
 
 // Ova prica nije samo read-only, mi mozemo mijenjati stvari na ovaj nacin, npr. izmjeniti sadrzaj bodya..
-document.body.innerHTML = "<h1>Hello World</h1>"
+// document.body.innerHTML = "<h1>Hello World</h1>"
+// document.getElementById("header").innerHTML = "<h1>Help me!!!</h1>"
+
