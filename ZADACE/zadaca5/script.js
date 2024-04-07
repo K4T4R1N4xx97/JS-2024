@@ -56,8 +56,8 @@ const album = [ {
  
 album.splice(1, 0, noviAlbum);
 console.log(album);
-
  
+
 
 /*----------------ZADATAK-4----------------*/
 const imena = ["Slavica", "Mario","Irena", "Katarina", "Tihomir"];
@@ -71,3 +71,12 @@ const imena = ["Slavica", "Mario","Irena", "Katarina", "Tihomir"];
   };
 
  
+
+/*----------------ZADATAK-4----------------*/
+
+
+
+
+
+
+

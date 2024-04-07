@@ -1,20 +1,15 @@
 "use strict"
 
-
-
-
 const osoba1 = {
     ime: "Iva",
 };
 
 //ovakav pristup ce samo kopirati putanju prema vrijednostima iz objekta koje su zapisane u heap memoriji
 const osoba2 = osoba1;
-
 console.log(osoba1, osoba2);
 
 
 osoba2.ime = "Luka";
-
 console.log(osoba1, osoba2);
 
 // izrada kopije objekta, ali samih vrijednosti u heap memoriji. Ako su podatci višeslojeviti, ovaj pristup ce samo od top level podataka napraviti kopiju, ali ako ima ugnijezdeni ojekt unutar objekta i dalje ce biti referentna putanja na stari podobjekt. Takoder ista prica ako imamo listi unutar liste...
