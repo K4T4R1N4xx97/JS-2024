@@ -110,6 +110,13 @@ kada ćemo prekinuti loop.
 Pomoć: Kada koristimo Math.random to će biti broj između 0 i 1, doslovno decimalni broj stoga morate
 tome doskočiti. Kako bi maknuli decimalu pišemo Math.trunc ili Math.floor.*/
 
+let kockica;
+while ((kockica = Math.floor(Math.random() * 6) + 1) === 6) {
+  console.log("Nisam dobila 6, dobila sam:", kockica);
+}
+console.log(`Dobila sam 6.`);
+
+
 
 /*----------------ZADATAK-6----------------*/
 /*Idemo opet nazad do Jože i njegovog kalkulatora napojnice. U njegovoj zemlji uobičajeno je
