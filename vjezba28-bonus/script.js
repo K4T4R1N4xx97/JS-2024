@@ -75,7 +75,7 @@ const dodajLocalStorage = (zadatakInput) => {
 };
 
 
-// funkcija za sohvacanje iz localStoragea
+// funkcija za dohvacanje iz localStoragea
 const dohvatiLocalStorage = ( )=>{
     let zadaciSpremiste;
 
@@ -91,14 +91,32 @@ const dohvatiLocalStorage = ( )=>{
 // funkcija za brisanje zadataka pojedinacno
 const obrisiZadatak = (e) => {
     if (e.target.parentElement.classList.contains("ukloni-zadatak")){
-        e.target.parentElement.parentElement.remove();
+        ukloniZadatak(e.target.parentElement.parentElement);
     }
-    provjeriListu();
+    };
+
+    // funkcija koja brise zadatak vizualno sa DOM-a i takoder prosljeduje kao parametar podatak prema funkciji obrisiIzDom-a zadatak koji brisemo.
+    const ukloniZadatak = (zadatakIzDOMA) => {
+        zadatakIzDOMA.remove();
+        obrisiIzDOMA(zadatakIzDOMA.textContent);
+        provjeriListu();
+    };
+    
+
+
+
+// funkcija koja ce dohvatiti zadatke iz LS-a i filter metodom obrisati kliknutog i nakon toga spremiti sve nazad u LS bez kliknutog zadatka
+const obrisiIzDOMA = (e) =>{
+    let zadatakIzStoregea = dohvatiLocalStorage();
+    zadatakIzStoregea = zadatakIzStoregea.filter((zadatak) => zadatak !== e);
+
+    localStorage.setItem("kljuc" , JSON.stringify(zadatakIzStoregea));
 };
 
 // funkcija za brisanje svih zadataka od jednom
 const obrisiZadatke = () => {
     listaZadataka.innerHTML= "";
+    localStorage.removeItem("kljuc");
     provjeriListu();
 }
 
