@@ -35,8 +35,6 @@ const dodajZadatak = (e) => {
 };
 
 
-
-
 // funkcija za brisanje zadataka pojedinacno
 const obrisiZadatak = (e) => {
     if (e.target.parentElement.classList.contains("ukloni-zadatak")){
@@ -44,6 +42,8 @@ const obrisiZadatak = (e) => {
     }
     provjeriListu();
 };
+
+
 
 // funkcija za brisanje svih zadataka od jednom
 const obrisiZadatke = () => {
