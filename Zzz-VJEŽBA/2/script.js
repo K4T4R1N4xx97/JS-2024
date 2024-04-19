@@ -58,15 +58,10 @@ Primjer liste boja: */
 const gumb = document.getElementById("klikni2");
 const boje = ["Red", "Blue", "Yellow", "Green", "Orange", "pink"];
 
-let trenutnaBoja = 0;
+let pozadina = 0;
+const promjenaPozadina = () => {
+    document.body.style.backgroundColor= boje[pozadina];
+    pozadina = (pozadina + 1) % boje.length;
+};
 
-const promijeniBoju = () => {
-    document.body.style.backgroundColor = boje[trenutnaBoja];
-    trenutnaBoja = (trenutnaBoja + 1) % boje.length;
-}
-gumb.addEventListener("click", promijeniBoju);
-
-
-
-
-
+gumb.addEventListener("click", promjenaPozadina);
