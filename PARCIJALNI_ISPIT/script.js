@@ -1,11 +1,10 @@
 "use strict";
- 
 
 const divTunes = document.getElementById("divTunes");
 const search = document.getElementById("search")
 const dugme = document.getElementById("dugmic")
 
- // funkcija za shvatit s iTunes-a
+ // funkcija za sohvatit s iTunes-a
 const iTunesfunkcija = async () => {
     try{
         const res = await fetch("./iTUnes.txt");
@@ -28,8 +27,7 @@ const iTunesfunkcija = async () => {
 iTunesfunkcija();
 
 // funkcija za pretrazivat pjesme
-
-const pretrazi = ()=>{
+const pretrazi = () => {
     const glazba = divTunes.querySelectorAll("div");
     const nazivi = search.value.toLowerCase();
     
@@ -44,7 +42,7 @@ const pretrazi = ()=>{
     });
 };
 
- dugme.addEventListener("click", ()=>{
+ dugme.addEventListener("click", () => {
     pretrazi();
  });
 
