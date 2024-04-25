@@ -1,8 +1,11 @@
 "use strict";
  
-// funkcija za shvatit s iTunes-a
+
 const divTunes = document.getElementById("divTunes");
- 
+const search = document.getElementById("search")
+const dugme = document.getElementById("dugmic")
+
+ // funkcija za shvatit s iTunes-a
 const iTunesfunkcija = async () => {
     try{
         const res = await fetch("./iTUnes.txt");
@@ -25,11 +28,10 @@ const iTunesfunkcija = async () => {
 iTunesfunkcija();
 
 // funkcija za pretrazivat pjesme
-const search = document.getElementById("search")
 
-const pretrazi = (e)=>{
+const pretrazi = ()=>{
     const glazba = divTunes.querySelectorAll("div");
-    const nazivi = e.target.value.toLowerCase();
+    const nazivi = search.value.toLowerCase();
     
     glazba.forEach((mjuza) =>{
         const nazivPjesme = mjuza.textContent.toLowerCase();
@@ -37,9 +39,19 @@ const pretrazi = (e)=>{
         if(nazivPjesme.indexOf(nazivi) !=-1){
             mjuza.style.display="block";
         }else{
-            mjuza.style.display="none";
+            mjuza.style.display="none";       
         }
     });
 };
 
- search.addEventListener("input", pretrazi);
+ dugme.addEventListener("click", ()=>{
+    pretrazi();
+ });
+
+ search.addEventListener("keydown", (event) => {
+    if(event.key === "Enter"){
+    event.preventDefault();
+    pretrazi();
+    }
+});
+
