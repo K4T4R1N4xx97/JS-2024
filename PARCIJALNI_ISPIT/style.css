@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -5,26 +7,29 @@
     font-family: nunito;
 }
 
+img{
+    width: 50px;
+}
+
 #container{
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     margin: 20px 20px;
 }
 
-
 input{
     outline: none;
-    border:1px solid #afaeae;
+    border: 1px solid #afaeae;
     border-right: none;
-    border-radius:5px ;
+    border-radius: 5px ;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     padding: 8px 10px;
     font-size: 16px;
     margin-left: 20px;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-    }
+}
 
 #dugmic{
     padding: 5px 10px;
@@ -36,34 +41,32 @@ input{
     color: #fff;
     cursor: pointer;
     font-size: 16px;
-    height: 39.7px;
+    height: 40px;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-    }
+}
 
     #dugmic:hover{
     background: linear-gradient(#484848, #1c1c1c);
-    cursor: pointer;
-    }
+ }
 
+#divTunes{
+    display: grid;
+    grid-template-columns: repeat(5, 350px);
+    grid-template-rows: repeat(10, 60px);
+    row-gap: 10px;
+    column-gap: 20px;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    background-image: url(slika.png);
+    border-bottom: 1px #9b9b9b solid ;
+}
 
-    #divTunes{
-        display:grid;
-        grid-template-columns: repeat(5, 350px);
-        grid-template-rows: repeat(10, 60px);
-        row-gap: 10px;
-        column-gap: 20px;
-        align-items: center;
-        justify-content: center;
-        justify-items: center;
-        background-image:url(slika.png);
-        border-bottom:1px #9b9b9b solid ;
-    }
-
-    .pjesma-div{
-        border: none;
-        border-radius: 5px;
-        background:linear-gradient(#ffcf93, #ffc0c0, #e494ff, #6d91fc );
-        width: fit-content;
-        padding: 5px;
-        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-     }
+.pjesma-div{
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(#ffcf93, #ffc0c0, #e494ff, #6d91fc );
+    width: fit-content;
+    padding: 5px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+}

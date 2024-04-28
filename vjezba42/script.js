@@ -102,3 +102,26 @@ e.addEventListener("click", (event) => {
     brojKLikova(event.target)
     });
 });
+
+
+/*---------------------------------------------------------------------------*/
+
+function covjek(x){
+    const ime = x;
+    function pozdrav(){
+        console.log(`pozz, ja sam ${ime}`)
+    }
+    function kakoSi(){
+        console.log(`Kako se osjecas ${ime}?`)
+    }
+    return{pozdrav, kakoSi};
+}
+
+const osoba1 = covjek("Kaya");
+const osoba2 = covjek("Marac");
+
+console.log(osoba1, osoba2);
+osoba1.kakoSi();
+osoba2.kakoSi();
+
+
