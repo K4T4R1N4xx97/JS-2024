@@ -1,22 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iTunes-Search</title>
-    <script src="script.js" defer></script>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search App</title>
+<script src="script.js" defer></script>
 </head>
 <body>
-    <div id="container">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/ITunes_logo.svg/438px-ITunes_logo.svg.png" alt="iTunes-logo">
-    <form id="forma">
-    <input type="text" name="search" id="search"/>
-    </form>
-    <button id="dugmic">Search</button> 
-    </div>
-    <hr/>
-    <div id="divTunes">
-    </div>
+<h1>iTunes search</h1>
+<input type="text" id="searchInput" placeholder="Unesi traženi pojam">
+<button onclick="search()">Pretraži</button>
+<div id="results"></div>
 </body>
 </html>

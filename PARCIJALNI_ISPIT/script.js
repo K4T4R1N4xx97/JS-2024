@@ -1,54 +1,41 @@
 "use strict";
 
-const divTunes = document.getElementById("divTunes");
-const search = document.getElementById("search");
-const dugme = document.getElementById("dugmic");
-
- // funkcija za sohvatit s iTunes-a
-const iTunesfunkcija = async () => {
+// Funkcija za dohvaćanje podataka s iTunes search stranice
+async function fetchSongs(term) {
     try {
-        const res = await fetch("./iTUnes.txt");
-        const data = await res.json();
-        console.log(data);
-        data.results.forEach((pjesma) => {
-          const songDiv = document.createElement("div");
-          songDiv.classList.add("pjesma-div");
-          songDiv.textContent = `${pjesma.artistName} - ${pjesma.trackName}`
-          divTunes.appendChild(songDiv);
-        });
-        if (!res.ok) {
-          console.log("Nešto je pošlo krivo...");
-          return;
-        };
-    } catch(error){
-        console.log(error);
+        const response = await fetch(`https://itunes.apple.com/search?term=${term}&country=us&entity=song`);
+        const data = await response.json();
+        return data.results;
+    } catch (error) {
+        console.error('Greška prilikom dohvaćanja podataka:', error);
+        return [];
     };
 };
-iTunesfunkcija();
 
-// funkcija za pretrazivat pjesme
-
-const pretrazi = (e) => {
-    pretragaTime = setTimeout(() => {
-        const glazba = divTunes.querySelectorAll(".pjesma-div");
-        const naziv = e.target.value.toLowerCase();
-       
-
-        glazba.forEach((mjuza) => {
-          const nazivPjesme = mjuza.textContent.toLowerCase();
-          console.log(nazivPjesme);
-          if (nazivPjesme.indexOf(naziv) !=-1) {
-            mjuza.style.display="block";  
-           } else {
-              mjuza.style.display="none";   
-           };
-        });
-   }, 1000);  
+// Funkcija za ispisivanje rezultata
+function displayResults(results) {
+    const resultsDiv = document.getElementById('results');
+    resultsDiv.innerHTML = ''; // Očisti prethodne rezultate
+    if (results.length === 0) {
+        resultsDiv.textContent = 'Nema rezultata za traženi pojam.';
+    } else {
+        results.forEach((song, index) => {
+            const divs = document.createElement('div');
+            divs.textContent = `${song.trackName} - ${song.artistName}`;
+            resultsDiv.appendChild(divs);
+        }); 
+    };
 };
 
- dugme.addEventListener("click", (event) => {
-    pretrazi(event);
- });
-
- search.addEventListener("input", pretrazi);
-
+// Funkcija za pretraživanje
+async function search() {
+    const searchInput = document.getElementById('searchInput');
+    const term = searchInput.value.trim();
+    if (term === '') {
+        alert('Molimo unesite termin za pretragu.');
+        return;
+    };
+    
+    const results = await fetchSongs(term);
+    displayResults(results);
+};
