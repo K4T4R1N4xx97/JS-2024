@@ -1,29 +1,32 @@
-"use strict";
+const searchInput = document.getElementById('searchInput');
+const loader = document.getElementById('loader');
+const resultsDiv = document.getElementById('results');
 
-const searchInput = document.getElementById("search");
-const songDivs = document.getElementById("songDivs");
+async function fetchAndDisplayResults(searchTerm) {
+  loader.style.display = 'block';
+  try {
+    const response = await fetch(`https://itunes.apple.com/search?term=${searchTerm}&entity=song`);
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const data = await response.json();
+    loader.style.display = 'none';
+    if (data.results.length === 0) {
+      resultsDiv.innerHTML = '<p>No results found.</p>';
+      return;
+    }
+    const songs = data.results.map(song => `<p>${song.trackName} by ${song.artistName}</p>`);
+    resultsDiv.innerHTML = songs.join('');
+  } catch (error) {
+    console.log("error", error);
+  }
+}
 
-const catchiTunes = async (term) => {
-    try{
-    const res = await fetch(`https://itunes.apple.com/search?term=${term}&indie&entity=song`);
-    if(!res.ok){
-        console.log("Something went wrong.");
-    }; 
-    const data = await res.json();
-
-    if(data.results.length === 0){
-        alert("Nothing to search!");
-        return;
-    };
-
-    data.forEach((song) => {
-        const songs = document.createElement("div");
-        songs.textContent = `${song.artistName} - ${song.trackName}`;
-        songDivs.appendChild(songs);
-    });
-    } catch (error) {
-        console.log("Error", error);
-        return;
-    };
-};
-
+searchInput.addEventListener('input', () => {
+  const searchTerm = searchInput.value.trim();
+  if (searchTerm === '') {
+    resultsDiv.innerHTML = '';
+    return;
+  }
+  fetchAndDisplayResults(searchTerm);
+});
