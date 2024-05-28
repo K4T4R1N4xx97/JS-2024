@@ -6,7 +6,7 @@ const karticaData = [
     },
     {
         id:2,
-        rating:6,
+        rating:5,
         text: "Lorem ipsum",
     },
     {
