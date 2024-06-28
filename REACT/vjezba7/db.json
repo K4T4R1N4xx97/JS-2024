@@ -1,0 +1,9 @@
+{
+    "kartice": [
+        {
+        "id":1,
+        "rating":5,
+        "text": "Dolazim iz db.json-a"
+        }
+    ]
+}
